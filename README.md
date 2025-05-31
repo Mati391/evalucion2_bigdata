@@ -46,6 +46,46 @@ Se asignan las cuentas y servicios dentro del proyecto de google cloud, Esta con
 
 #Analisis de datos
 
+1- Primero se realizo un grafico de torta con las formas mas comunes de avistamientos
+Datos mostrados:
+Formas de UFO más comunes en EE.UU. y su frecuencia:
+Light: 5,440 avistamientos (54.4%)
+Triangle: 2,574 (25.74%)
+Circle: 2,483 (24.83%)
+Fireball: 2,117 (21.17%)
+Other: 1,880 (18.8%)
+![image](https://github.com/user-attachments/assets/a31e9378-bfd3-46e2-b44b-70ed533649af)
+Interpretación:
+#	Los objetos luminosos ("light") son con diferencia los más reportados, representando más de la mitad de todos los avistamientos.
+#	Las formas geométricas definidas (triángulo, círculo) son las siguientes más comunes.
+#	El gráfico muestra solo los 5 tipos principales, excluyendo categorías menos frecuentes.
+Consulta SQL usada:
+SELECT 
+  UFO_shape,
+  COUNT(*) AS SightingsFROM 
+  `ufo_dataset.ufo_sightings`WHERE 
+  country = 'us'GROUP BY 
+  UFO_shapeORDER BY 
+  Sightings DESCLIMIT 5;
+
+2- El segundo grafico corresponde a uno de barras con los avisos por año
+![image](https://github.com/user-attachments/assets/4cb2443f-8009-4d9c-a9c7-f86cfbd826cf)
+Interpretacion:
+Interpretación:
+Los años 2012 y 2013 fueron picos en reportes de avistamientos.
+Hay una tendencia general de aumento hacia 2012-2013, con algunos altibajos.
+Los datos muestran solo parte del conjunto total (11 de 63 registros anuales mostrados).
+Consulta SQL usada:
+SELECT 
+  EXTRACT(YEAR FROM DATETIME(Date_time)) AS Year,
+  COUNT(*) AS SightingsFROM 
+  `ufo_dataset.ufo_sightings`WHERE 
+  country = 'us'GROUP BY 
+  YearORDER BY 
+  Sightings DESC;
+
+3- El tercer grafico es un mapa de avistamientos ordenados de mayor a menor
+![image](https://github.com/user-attachments/assets/86ae55de-b404-499e-a1ae-d25ac1e25429)
 
 
  
