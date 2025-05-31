@@ -32,7 +32,20 @@ Una vez cargado el dataset, se utiliza Cloud Dataprep para preparar los datos an
 3. Validación del esquema final:
 ![limpieza de datos](https://github.com/user-attachments/assets/78eb8e9c-3004-4721-b27c-b39f9bc6eda3)
 
-![Flujo del dataset](img/flujo%20dataset%20analytic.jpeg)
-
 flujo completo del dataset desde su carga hasta su disponibilidad en BigQuery:
+![flujo dataset analytic](https://github.com/user-attachments/assets/d45aeacc-b303-4d08-8670-019309d69e65)
 
+#Tabla de avistamientos
+
+1-Después de ejecutar la receta de limpieza en Cloud Dataprep, La imagen muestra la tabla final ya disponible para consultas SQL.
+![tabla de avistamientos y confirmacion de datos](https://github.com/user-attachments/assets/f9387969-c49e-4a47-aefd-4e2cce81c7d2)
+
+#Configuracion de permisos
+Se asignan las cuentas y servicios dentro del proyecto de google cloud, Esta configuración garantiza que las herramientas tengan los accesos necesarios para operar correctamente.
+![permisosdatafrod](https://github.com/user-attachments/assets/76452845-4b72-437e-9694-faaf2042e70d)
+
+#Analisis de datos
+
+
+
+ 
