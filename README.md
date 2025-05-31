@@ -66,6 +66,7 @@ Se asignan las cuentas y servicios dentro del proyecto de Google Cloud. Esta con
 ### 1. Gráfico de Torta – Formas más comunes de avistamientos
 
 **Datos mostrados:**  
+
 Formas de UFO más comunes en EE.UU. y su frecuencia:
 - Light: 5,440 avistamientos (54.4%)
 - Triangle: 2,574 (25.74%)
@@ -73,7 +74,9 @@ Formas de UFO más comunes en EE.UU. y su frecuencia:
 - Fireball: 2,117 (21.17%)
 - Other: 1,880 (18.8%)
 
+
 ![Gráfico de torta](https://github.com/user-attachments/assets/a31e9378-bfd3-46e2-b44b-70ed533649af)
+
 
 **Interpretación:**  
 Los objetos luminosos ("light") son con diferencia los más reportados, representando más de la mitad de todos los avistamientos.  
