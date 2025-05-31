@@ -1,7 +1,7 @@
 
 # Evaluación 2 - Big Data
 
-**Integrantes:** Matías Sánchez y Jonathan Ávila
+**Integrantes:** Matías Sánchez, Jonathan Ávila, Yuliana Benitez
 
 # Proyecto de Análisis de Avistamientos de OVNIs
 
