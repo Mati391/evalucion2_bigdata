@@ -40,7 +40,7 @@
       background-color: rgba(0, 0, 0, 0.65);
       margin: 50px auto;
       padding: 30px;
-      max-width: 800px;
+      max-width: 900px;
       border-radius: 10px;
     }
 
@@ -48,45 +48,44 @@
       text-align: center;
     }
 
-    ul {
-      font-size: 1.2em;
+    ul, p, pre {
+      font-size: 1.1em;
     }
 
-    .button {
-      display: inline-block;
-      margin: 10px;
-      padding: 10px 20px;
-      background-color: #ffffff33;
-      color: white;
-      border: 2px solid white;
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+      margin: 20px auto;
+      border-radius: 10px;
+      box-shadow: 0 0 8px black;
+    }
+
+    code, pre {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 10px;
       border-radius: 6px;
-      text-decoration: none;
-      transition: 0.3s;
-    }
-
-    .button:hover {
-      background-color: white;
-      color: black;
+      overflow-x: auto;
     }
   </style>
 </head>
 <body>
 
 <nav>
-  <a href="#formas">Formas más comunes</a>
-  <a href="#anios">Avistamientos por año</a>
-  <a href="#estados">Avistamientos por estado</a>
+  <a href="#formas">Formas</a>
+  <a href="#anios">Años</a>
 </nav>
 
 <div class="section" id="intro">
   <h1>Avistamientos de OVNIs</h1>
-  <p>Este sitio presenta visualizaciones interactivas y análisis sobre los datos de avistamientos de OVNIs en Estados Unidos utilizando herramientas de Google Cloud.</p>
-  <p>Haz clic en las secciones del menú para navegar entre los distintos análisis.</p>
+  <p>Visualizaciones y análisis basados en el dataset de avistamientos de OVNIs en EE.UU., procesados en Google Cloud y consultados mediante BigQuery.</p>
 </div>
 
 <div class="section" id="formas">
-  <h2>Formas más comunes de avistamientos</h2>
-  <p>Formas de UFO más comunes en EE.UU. y su frecuencia:</p>
+  <h2>Gráfico de Torta – Formas más comunes</h2>
+  <img src="https://github.com/user-attachments/assets/a31e9378-bfd3-46e2-b44b-70ed533649af" alt="Gráfico de Torta">
+
+  <p><strong>Datos mostrados:</strong></p>
   <ul>
     <li>Light: 5,440 avistamientos (54.4%)</li>
     <li>Triangle: 2,574 (25.74%)</li>
@@ -94,38 +93,11 @@
     <li>Fireball: 2,117 (21.17%)</li>
     <li>Other: 1,880 (18.8%)</li>
   </ul>
-  <p>Los objetos luminosos ("light") son los más reportados. Las formas geométricas como triángulo y círculo también destacan.</p>
-</div>
 
-<div class="section" id="anios">
-  <h2>Avistamientos por año</h2>
-  <p>Top 11 años con más avistamientos en EE.UU.:</p>
-  <ul>
-    <li>2012: 2,626</li>
-    <li>2013: 2,424</li>
-    <li>2011: 1,763</li>
-    <li>2010: 1,597</li>
-    <li>2008: 1,498</li>
-    <li>2007: 1,446</li>
-    <li>2009: 1,360</li>
-    <li>2005: 1,272</li>
-    <li>2004: 1,239</li>
-    <li>2006: 1,110</li>
-    <li>2003: 1,083</li>
-  </ul>
-  <p>Los años 2012 y 2013 muestran el mayor número de avistamientos. Se observa una tendencia creciente hasta ese periodo.</p>
-</div>
+  <p><strong>Interpretación:</strong> Los objetos luminosos ("light") son con diferencia los más reportados, representando más de la mitad de todos los avistamientos. Las formas geométricas como triángulo y círculo también son frecuentes.</p>
 
-<div class="section" id="estados">
-  <h2>Avistamientos por estado</h2>
-  <p>Estados con mayor número de avistamientos reportados:</p>
-  <ul>
-    <li>California: 3,561</li>
-    <li>Washington: 1,555</li>
-    <li>Florida: 1,544</li>
-  </ul>
-  <p>Estos estados concentran una gran cantidad de reportes, especialmente California, lo que puede estar relacionado con su población y cobertura territorial.</p>
-</div>
-
-</body>
-</html>
+  <p><strong>Consulta SQL:</strong></p>
+  <pre><code>
+SELECT 
+  UFO_shape,
+  COUNT(*) AS Sighting*
