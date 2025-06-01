@@ -4,18 +4,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard OVNIs</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
     * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #d8f3dc;
+      background-color: #e6f4ea;
       color: #333;
     }
     header {
       padding: 20px;
       text-align: center;
-      background-color: #95d5b2;
+      background-color: #a8dadc;
     }
     header h1 {
       margin: 0;
@@ -26,7 +27,7 @@
       height: calc(100vh - 80px);
     }
     .sidebar {
-      background-color: #b7e4c7;
+      background-color: #c1f0dc;
       padding: 20px;
       display: flex;
       flex-direction: column;
@@ -52,15 +53,26 @@
     .section {
       display: none;
       animation: fadeIn 0.5s ease-in-out;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 20px;
+      align-items: start;
     }
     .section.active {
-      display: block;
+      display: grid;
     }
-    img {
+    canvas {
+      width: 100% !important;
       max-width: 100%;
+      background-color: white;
       border-radius: 10px;
-      margin: 20px 0;
       box-shadow: 0 0 10px rgba(0,0,0,0.3);
+    }
+    .info {
+      background-color: #f1fdf7;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
     @keyframes fadeIn {
       from { opacity: 0; }
@@ -83,21 +95,27 @@
 
   <main class="content">
     <div id="formas" class="section active">
-      <h2>Formas más comunes</h2>
-      <img src="https://github.com/user-attachments/assets/a31e9378-bfd3-46e2-b44b-70ed533649af" alt="Gráfico de torta">
-      <p>Los objetos luminosos ("light") son los más reportados, seguidos por formas geométricas como triángulos y círculos.</p>
+      <canvas id="chartFormas"></canvas>
+      <div class="info">
+        <h3>Interpretación</h3>
+        <p>Los objetos luminosos ("light") representan más del 50% de los reportes. Las formas geométricas como triángulos y círculos también son muy frecuentes, lo que sugiere que los avistamientos tienden a concentrarse en figuras reconocibles visualmente por los testigos.</p>
+      </div>
     </div>
 
     <div id="anios" class="section">
-      <h2>Avistamientos por año</h2>
-      <img src="https://github.com/user-attachments/assets/4cb2443f-8009-4d9c-a9c7-f86cfbd826cf" alt="Gráfico de barras">
-      <p>Los años 2012 y 2013 muestran el mayor número de reportes. Se observa una tendencia ascendente hasta ese periodo.</p>
+      <canvas id="chartAnios"></canvas>
+      <div class="info">
+        <h3>Interpretación</h3>
+        <p>Los años 2012 y 2013 destacan como los de mayor actividad. Esta alza podría estar relacionada con fenómenos sociales, tecnológicos o culturales que favorecieron la comunicación de estos eventos.</p>
+      </div>
     </div>
 
     <div id="estados" class="section">
-      <h2>Avistamientos por estado</h2>
-      <img src="https://github.com/user-attachments/assets/86ae55de-b404-499e-a1ae-d25ac1e25429" alt="Mapa de estados">
-      <p>California lidera los reportes con 3.561 avistamientos, seguida por Washington y Florida.</p>
+      <canvas id="chartEstados"></canvas>
+      <div class="info">
+        <h3>Interpretación</h3>
+        <p>California encabeza la lista con más de 3.500 reportes, seguido por Washington y Florida. Esto podría estar asociado a factores como densidad poblacional, interés cultural en el fenómeno OVNI o actividades militares.</p>
+      </div>
     </div>
   </main>
 </div>
@@ -107,6 +125,58 @@
     document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
     document.getElementById(id).classList.add('active');
   }
+
+  // Chart: Formas
+  new Chart(document.getElementById('chartFormas'), {
+    type: 'pie',
+    data: {
+      labels: ['Light', 'Triangle', 'Circle', 'Fireball', 'Other'],
+      datasets: [{
+        data: [5440, 2574, 2483, 2117, 1880],
+        backgroundColor: ['#52b788', '#74c69d', '#95d5b2', '#b7e4c7', '#d8f3dc']
+      }]
+    },
+    options: { responsive: true }
+  });
+
+  // Chart: Años
+  new Chart(document.getElementById('chartAnios'), {
+    type: 'bar',
+    data: {
+      labels: ['2012','2013','2011','2010','2008','2007','2009','2005','2004','2006','2003'],
+      datasets: [{
+        label: 'Avistamientos',
+        data: [2626, 2424, 1763, 1597, 1498, 1446, 1360, 1272, 1239, 1110, 1083],
+        backgroundColor: '#52b788'
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: { beginAtZero: true }
+      }
+    }
+  });
+
+  // Chart: Estados
+  new Chart(document.getElementById('chartEstados'), {
+    type: 'horizontalBar',
+    data: {
+      labels: ['California', 'Washington', 'Florida'],
+      datasets: [{
+        label: 'Avistamientos',
+        data: [3561, 1555, 1544],
+        backgroundColor: '#40916c'
+      }]
+    },
+    options: {
+      responsive: true,
+      indexAxis: 'y',
+      scales: {
+        x: { beginAtZero: true }
+      }
+    }
+  });
 </script>
 
 </body>
