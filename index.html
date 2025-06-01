@@ -3,95 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard OVNIs con Datos</title>
+  <title>Página Principal - OVNIs</title>
   <style>
-    body {
+    body, html {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to bottom, #d8f3dc, #b7e4c7);
-      color: #2a4d3b;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
     }
-    header {
-      padding: 25px;
-      text-align: center;
-      background-color: #40916c;
+    .hero {
+      position: relative;
+      background: url('3d9eb617-bbd7-40fb-9262-47cf38a1d344.png') no-repeat center center fixed;
+      background-size: cover;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
       color: white;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      text-align: center;
+      padding: 0 20px;
     }
-    .content {
-      padding: 40px;
-      display: grid;
-      gap: 50px;
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 0, 0, 0.6);
+      z-index: 1;
     }
-    .section {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 30px;
-      align-items: start;
+    .hero-content {
+      position: relative;
+      z-index: 2;
     }
-    .info {
-      background-color: #fefae0;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    .hero h1 {
+      font-size: 3em;
+      margin-bottom: 20px;
+      text-shadow: 2px 2px 8px black;
     }
-    img {
-      max-width: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    .hero p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: 0 auto 30px auto;
+      text-shadow: 1px 1px 6px black;
     }
-    .datos {
-      margin-top: 15px;
-      font-size: 1em;
-      background-color: #e9f5db;
-      padding: 12px;
-      border-radius: 10px;
-      color: #1b4332;
+    .hero a {
+      text-decoration: none;
+      background-color: #4caf50;
+      color: white;
+      padding: 15px 30px;
+      font-size: 1.1em;
+      border-radius: 8px;
+      transition: background-color 0.3s;
+      box-shadow: 2px 2px 10px black;
     }
-    h3 {
-      color: #2d6a4f;
+    .hero a:hover {
+      background-color: #388e3c;
     }
   </style>
 </head>
 <body>
-
-<header>
-  <h1>Dashboard de Avistamientos de OVNIs</h1>
-</header>
-
-<main class="content">
-  <div class="section">
-    <img src="https://github.com/user-attachments/assets/a31e9378-bfd3-46e2-b44b-70ed533649af" alt="Gráfico de Formas">
-    <div class="info">
-      <h3>Interpretación</h3>
-      <p>Los objetos luminosos ("light") representan más del 50% de los reportes. Las formas geométricas como triángulos y círculos también son muy frecuentes, lo que sugiere que los avistamientos tienden a concentrarse en figuras reconocibles visualmente por los testigos.</p>
-      <div class="datos">
-        <strong>Datos mostrados:</strong><br>
-        Light: 5,440 avistamientos (54.4%)<br>
-        Triangle: 2,574 (25.74%)<br>
-        Circle: 2,483 (24.83%)<br>
-        Fireball: 2,117 (21.17%)<br>
-        Other: 1,880 (18.8%)
-      </div>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Página Principal - Avistamientos de OVNIs</h1>
+      <p>Durante décadas, miles de personas en Estados Unidos han reportado fenómenos inexplicables en el cielo. Este sitio reúne visualizaciones sobre las formas, lugares y momentos donde más se han concentrado los avistamientos.</p>
+      <a href="avistamientos.html">Consulta Avistamientos</a>
     </div>
-  </div>
-
-  <div class="section">
-    <img src="https://github.com/user-attachments/assets/4cb2443f-8009-4d9c-a9c7-f86cfbd826cf" alt="Gráfico por Año">
-    <div class="info">
-      <h3>Interpretación</h3>
-      <p>Los años 2012 y 2013 destacan como los de mayor actividad. Esta alza podría estar relacionada con fenómenos sociales, tecnológicos o culturales que favorecieron la comunicación de estos eventos.</p>
-    </div>
-  </div>
-
-  <div class="section">
-    <img src="https://github.com/user-attachments/assets/86ae55de-b404-499e-a1ae-d25ac1e25429" alt="Mapa de Avistamientos por Estado">
-    <div class="info">
-      <h3>Interpretación</h3>
-      <p>California encabeza la lista con más de 3.500 reportes, seguido por Washington y Florida. Esto podría estar asociado a factores como densidad poblacional, interés cultural en el fenómeno OVNI o actividades militares.</p>
-    </div>
-  </div>
-</main>
-
+  </section>
 </body>
 </html>
+
