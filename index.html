@@ -5,44 +5,127 @@
   <title>Avistamientos de OVNIs</title>
   <style>
     body {
+      margin: 0;
+      font-family: Arial, sans-serif;
       background-image: url('https://images.unsplash.com/photo-1506702315536-dd8b83e2dcf9?auto=format&fit=crop&w=1950&q=80');
       background-size: cover;
-      background-position: center;
       background-attachment: fixed;
+      background-position: center;
       color: white;
-      font-family: Arial, sans-serif;
-      text-shadow: 1px 1px 3px black;
-      padding: 40px;
+      text-shadow: 1px 1px 2px black;
     }
-    h1 {
-      text-align: center;
-      font-size: 3em;
-      margin-bottom: 0.5em;
+
+    nav {
+      background-color: rgba(0, 0, 0, 0.8);
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
     }
-    .content {
-      background-color: rgba(0, 0, 0, 0.6);
+
+    nav a {
+      color: white;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .section {
+      background-color: rgba(0, 0, 0, 0.65);
+      margin: 50px auto;
       padding: 30px;
-      border-radius: 10px;
       max-width: 800px;
-      margin: auto;
+      border-radius: 10px;
     }
+
+    h1, h2 {
+      text-align: center;
+    }
+
     ul {
       font-size: 1.2em;
+    }
+
+    .button {
+      display: inline-block;
+      margin: 10px;
+      padding: 10px 20px;
+      background-color: #ffffff33;
+      color: white;
+      border: 2px solid white;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .button:hover {
+      background-color: white;
+      color: black;
     }
   </style>
 </head>
 <body>
-  <div class="content">
-    <h1>Avistamientos de OVNIs</h1>
-    <p>A continuación se presentan los cinco tipos de objetos voladores no identificados (OVNIs) más reportados en Estados Unidos según el análisis de datos:</p>
-    <ul>
-      <li>Light: 5,440 avistamientos (54.4%)</li>
-      <li>Triangle: 2,574 (25.74%)</li>
-      <li>Circle: 2,483 (24.83%)</li>
-      <li>Fireball: 2,117 (21.17%)</li>
-      <li>Other: 1,880 (18.8%)</li>
-    </ul>
-    <p>Estos datos reflejan las formas más comunes en los reportes y son parte del análisis realizado con BigQuery y herramientas de Google Cloud.</p>
-  </div>
+
+<nav>
+  <a href="#formas">Formas más comunes</a>
+  <a href="#anios">Avistamientos por año</a>
+  <a href="#estados">Avistamientos por estado</a>
+</nav>
+
+<div class="section" id="intro">
+  <h1>Avistamientos de OVNIs</h1>
+  <p>Este sitio presenta visualizaciones interactivas y análisis sobre los datos de avistamientos de OVNIs en Estados Unidos utilizando herramientas de Google Cloud.</p>
+  <p>Haz clic en las secciones del menú para navegar entre los distintos análisis.</p>
+</div>
+
+<div class="section" id="formas">
+  <h2>Formas más comunes de avistamientos</h2>
+  <p>Formas de UFO más comunes en EE.UU. y su frecuencia:</p>
+  <ul>
+    <li>Light: 5,440 avistamientos (54.4%)</li>
+    <li>Triangle: 2,574 (25.74%)</li>
+    <li>Circle: 2,483 (24.83%)</li>
+    <li>Fireball: 2,117 (21.17%)</li>
+    <li>Other: 1,880 (18.8%)</li>
+  </ul>
+  <p>Los objetos luminosos ("light") son los más reportados. Las formas geométricas como triángulo y círculo también destacan.</p>
+</div>
+
+<div class="section" id="anios">
+  <h2>Avistamientos por año</h2>
+  <p>Top 11 años con más avistamientos en EE.UU.:</p>
+  <ul>
+    <li>2012: 2,626</li>
+    <li>2013: 2,424</li>
+    <li>2011: 1,763</li>
+    <li>2010: 1,597</li>
+    <li>2008: 1,498</li>
+    <li>2007: 1,446</li>
+    <li>2009: 1,360</li>
+    <li>2005: 1,272</li>
+    <li>2004: 1,239</li>
+    <li>2006: 1,110</li>
+    <li>2003: 1,083</li>
+  </ul>
+  <p>Los años 2012 y 2013 muestran el mayor número de avistamientos. Se observa una tendencia creciente hasta ese periodo.</p>
+</div>
+
+<div class="section" id="estados">
+  <h2>Avistamientos por estado</h2>
+  <p>Estados con mayor número de avistamientos reportados:</p>
+  <ul>
+    <li>California: 3,561</li>
+    <li>Washington: 1,555</li>
+    <li>Florida: 1,544</li>
+  </ul>
+  <p>Estos estados concentran una gran cantidad de reportes, especialmente California, lo que puede estar relacionado con su población y cobertura territorial.</p>
+</div>
+
 </body>
 </html>
