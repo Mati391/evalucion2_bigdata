@@ -3,10 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard OVNIs</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <title>Dashboard OVNIs con Imágenes</title>
   <style>
-    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: Arial, sans-serif;
@@ -17,9 +15,6 @@
       padding: 20px;
       text-align: center;
       background-color: #a8dadc;
-    }
-    header h1 {
-      margin: 0;
     }
     .dashboard {
       display: grid;
@@ -41,7 +36,6 @@
       background-color: #52b788;
       color: white;
       cursor: pointer;
-      transition: background 0.3s;
     }
     .sidebar button:hover {
       background-color: #40916c;
@@ -61,18 +55,20 @@
     .section.active {
       display: grid;
     }
-    canvas {
-      width: 100% !important;
-      max-width: 100%;
-      background-color: white;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0,0,0,0.3);
-    }
     .info {
       background-color: #f1fdf7;
       padding: 20px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
@@ -91,7 +87,7 @@
 
   <main class="content">
     <div id="formas" class="section active">
-      <canvas id="chartFormas"></canvas>
+      <img src="https://github.com/user-attachments/assets/a31e9378-bfd3-46e2-b44b-70ed533649af" alt="Gráfico de Formas">
       <div class="info">
         <h3>Interpretación</h3>
         <p>Los objetos luminosos ("light") representan más del 50% de los reportes. Las formas geométricas como triángulos y círculos también son muy frecuentes, lo que sugiere que los avistamientos tienden a concentrarse en figuras reconocibles visualmente por los testigos.</p>
@@ -99,7 +95,7 @@
     </div>
 
     <div id="anios" class="section">
-      <canvas id="chartAnios"></canvas>
+      <img src="https://github.com/user-attachments/assets/4cb2443f-8009-4d9c-a9c7-f86cfbd826cf" alt="Gráfico por Año">
       <div class="info">
         <h3>Interpretación</h3>
         <p>Los años 2012 y 2013 destacan como los de mayor actividad. Esta alza podría estar relacionada con fenómenos sociales, tecnológicos o culturales que favorecieron la comunicación de estos eventos.</p>
@@ -107,7 +103,7 @@
     </div>
 
     <div id="estados" class="section">
-      <canvas id="chartEstados"></canvas>
+      <img src="https://github.com/user-attachments/assets/86ae55de-b404-499e-a1ae-d25ac1e25429" alt="Mapa de Avistamientos por Estado">
       <div class="info">
         <h3>Interpretación</h3>
         <p>California encabeza la lista con más de 3.500 reportes, seguido por Washington y Florida. Esto podría estar asociado a factores como densidad poblacional, interés cultural en el fenómeno OVNI o actividades militares.</p>
@@ -125,3 +121,4 @@
 
 </body>
 </html>
+
