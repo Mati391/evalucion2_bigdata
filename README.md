@@ -148,6 +148,6 @@ Interpretación del gráfico de tabla y mapa:
 Muestra los 11 estados con mayor número de avistamientos.
 Los tres estados con más avistamientos son:
 
-California: 3.561
-Washington: 1.555
-Florida: 1.544
+- California: 3.561
+- Washington: 1.555
+- Florida: 1.544
