@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Dashboard OVNIs con Imágenes</title>
+  <title>Dashboard OVNIs con Datos</title>
   <style>
     body {
       margin: 0;
@@ -16,44 +16,16 @@
       text-align: center;
       background-color: #a8dadc;
     }
-    .dashboard {
-      display: grid;
-      grid-template-columns: 1fr 3fr;
-      height: calc(100vh - 80px);
-    }
-    .sidebar {
-      background-color: #c1f0dc;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .sidebar button {
-      padding: 12px;
-      font-size: 16px;
-      border: none;
-      border-radius: 6px;
-      background-color: #52b788;
-      color: white;
-      cursor: pointer;
-    }
-    .sidebar button:hover {
-      background-color: #40916c;
-    }
     .content {
       padding: 30px;
-      overflow-y: auto;
+      display: grid;
+      gap: 40px;
     }
     .section {
-      display: none;
-      animation: fadeIn 0.5s ease-in-out;
       display: grid;
       grid-template-columns: 2fr 1fr;
       gap: 20px;
       align-items: start;
-    }
-    .section.active {
-      display: grid;
     }
     .info {
       background-color: #f1fdf7;
@@ -66,9 +38,12 @@
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.2);
     }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
+    .datos {
+      margin-top: 15px;
+      font-size: 0.95em;
+      background-color: #d8f3dc;
+      padding: 10px;
+      border-radius: 8px;
     }
   </style>
 </head>
@@ -78,47 +53,39 @@
   <h1>Dashboard de Avistamientos de OVNIs</h1>
 </header>
 
-<div class="dashboard">
-  <aside class="sidebar">
-    <button onclick="showSection('formas')">Formas</button>
-    <button onclick="showSection('anios')">Años</button>
-    <button onclick="showSection('estados')">Estados</button>
-  </aside>
-
-  <main class="content">
-    <div id="formas" class="section active">
-      <img src="https://github.com/user-attachments/assets/a31e9378-bfd3-46e2-b44b-70ed533649af" alt="Gráfico de Formas">
-      <div class="info">
-        <h3>Interpretación</h3>
-        <p>Los objetos luminosos ("light") representan más del 50% de los reportes. Las formas geométricas como triángulos y círculos también son muy frecuentes, lo que sugiere que los avistamientos tienden a concentrarse en figuras reconocibles visualmente por los testigos.</p>
+<main class="content">
+  <div class="section">
+    <img src="https://github.com/user-attachments/assets/a31e9378-bfd3-46e2-b44b-70ed533649af" alt="Gráfico de Formas">
+    <div class="info">
+      <h3>Interpretación</h3>
+      <p>Los objetos luminosos ("light") representan más del 50% de los reportes. Las formas geométricas como triángulos y círculos también son muy frecuentes, lo que sugiere que los avistamientos tienden a concentrarse en figuras reconocibles visualmente por los testigos.</p>
+      <div class="datos">
+        <strong>Datos mostrados:</strong><br>
+        Light: 5,440 avistamientos (54.4%)<br>
+        Triangle: 2,574 (25.74%)<br>
+        Circle: 2,483 (24.83%)<br>
+        Fireball: 2,117 (21.17%)<br>
+        Other: 1,880 (18.8%)
       </div>
     </div>
+  </div>
 
-    <div id="anios" class="section">
-      <img src="https://github.com/user-attachments/assets/4cb2443f-8009-4d9c-a9c7-f86cfbd826cf" alt="Gráfico por Año">
-      <div class="info">
-        <h3>Interpretación</h3>
-        <p>Los años 2012 y 2013 destacan como los de mayor actividad. Esta alza podría estar relacionada con fenómenos sociales, tecnológicos o culturales que favorecieron la comunicación de estos eventos.</p>
-      </div>
+  <div class="section">
+    <img src="https://github.com/user-attachments/assets/4cb2443f-8009-4d9c-a9c7-f86cfbd826cf" alt="Gráfico por Año">
+    <div class="info">
+      <h3>Interpretación</h3>
+      <p>Los años 2012 y 2013 destacan como los de mayor actividad. Esta alza podría estar relacionada con fenómenos sociales, tecnológicos o culturales que favorecieron la comunicación de estos eventos.</p>
     </div>
+  </div>
 
-    <div id="estados" class="section">
-      <img src="https://github.com/user-attachments/assets/86ae55de-b404-499e-a1ae-d25ac1e25429" alt="Mapa de Avistamientos por Estado">
-      <div class="info">
-        <h3>Interpretación</h3>
-        <p>California encabeza la lista con más de 3.500 reportes, seguido por Washington y Florida. Esto podría estar asociado a factores como densidad poblacional, interés cultural en el fenómeno OVNI o actividades militares.</p>
-      </div>
+  <div class="section">
+    <img src="https://github.com/user-attachments/assets/86ae55de-b404-499e-a1ae-d25ac1e25429" alt="Mapa de Avistamientos por Estado">
+    <div class="info">
+      <h3>Interpretación</h3>
+      <p>California encabeza la lista con más de 3.500 reportes, seguido por Washington y Florida. Esto podría estar asociado a factores como densidad poblacional, interés cultural en el fenómeno OVNI o actividades militares.</p>
     </div>
-  </main>
-</div>
-
-<script>
-  function showSection(id) {
-    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
-    document.getElementById(id).classList.add('active');
-  }
-</script>
+  </div>
+</main>
 
 </body>
 </html>
-
