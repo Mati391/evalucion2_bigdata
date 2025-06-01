@@ -2,102 +2,113 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Avistamientos de OVNIs</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard OVNIs</title>
   <style>
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-image: url('https://images.unsplash.com/photo-1506702315536-dd8b83e2dcf9?auto=format&fit=crop&w=1950&q=80');
-      background-size: cover;
-      background-attachment: fixed;
-      background-position: center;
-      color: white;
-      text-shadow: 1px 1px 2px black;
+      background: linear-gradient(to right, #000428, #004e92);
+      color: #fff;
     }
-
-    nav {
-      background-color: rgba(0, 0, 0, 0.8);
-      padding: 10px 20px;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      display: flex;
-      justify-content: center;
-    }
-
-    nav a {
-      color: white;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    .section {
-      background-color: rgba(0, 0, 0, 0.65);
-      margin: 50px auto;
-      padding: 30px;
-      max-width: 900px;
-      border-radius: 10px;
-    }
-
-    h1, h2 {
+    header {
+      padding: 20px;
       text-align: center;
+      background-color: #021c39;
     }
-
-    ul, p, pre {
-      font-size: 1.1em;
+    header h1 {
+      margin: 0;
     }
-
-    img {
-      display: block;
-      max-width: 100%;
-      height: auto;
-      margin: 20px auto;
-      border-radius: 10px;
-      box-shadow: 0 0 8px black;
+    .dashboard {
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+      height: calc(100vh - 80px);
     }
-
-    code, pre {
-      background-color: rgba(255, 255, 255, 0.1);
-      padding: 10px;
+    .sidebar {
+      background-color: #012a4a;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .sidebar button {
+      padding: 12px;
+      font-size: 16px;
+      border: none;
       border-radius: 6px;
-      overflow-x: auto;
+      background-color: #014f86;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .sidebar button:hover {
+      background-color: #61a5c2;
+    }
+    .content {
+      padding: 30px;
+      overflow-y: auto;
+    }
+    .section {
+      display: none;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    .section.active {
+      display: block;
+    }
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin: 20px 0;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
   </style>
 </head>
 <body>
 
-<nav>
-  <a href="#formas">Formas</a>
-  <a href="#anios">Años</a>
-</nav>
+<header>
+  <h1>Dashboard de Avistamientos de OVNIs</h1>
+</header>
 
-<div class="section" id="intro">
-  <h1>Avistamientos de OVNIs</h1>
-  <p>Visualizaciones y análisis basados en el dataset de avistamientos de OVNIs en EE.UU., procesados en Google Cloud y consultados mediante BigQuery.</p>
+<div class="dashboard">
+  <aside class="sidebar">
+    <button onclick="showSection('formas')">Formas</button>
+    <button onclick="showSection('anios')">Años</button>
+    <button onclick="showSection('estados')">Estados</button>
+  </aside>
+
+  <main class="content">
+    <div id="formas" class="section active">
+      <h2>Formas más comunes</h2>
+      <img src="https://github.com/user-attachments/assets/a31e9378-bfd3-46e2-b44b-70ed533649af" alt="Gráfico de torta">
+      <p>Los objetos luminosos ("light") son los más reportados, seguidos por formas geométricas como triángulos y círculos.</p>
+    </div>
+
+    <div id="anios" class="section">
+      <h2>Avistamientos por año</h2>
+      <img src="https://github.com/user-attachments/assets/4cb2443f-8009-4d9c-a9c7-f86cfbd826cf" alt="Gráfico de barras">
+      <p>Los años 2012 y 2013 muestran el mayor número de reportes. Se observa una tendencia ascendente hasta ese periodo.</p>
+    </div>
+
+    <div id="estados" class="section">
+      <h2>Avistamientos por estado</h2>
+      <img src="https://github.com/user-attachments/assets/86ae55de-b404-499e-a1ae-d25ac1e25429" alt="Mapa de estados">
+      <p>California lidera los reportes con 3.561 avistamientos, seguida por Washington y Florida.</p>
+    </div>
+  </main>
 </div>
 
-<div class="section" id="formas">
-  <h2>Gráfico de Torta – Formas más comunes</h2>
-  <img src="https://github.com/user-attachments/assets/a31e9378-bfd3-46e2-b44b-70ed533649af" alt="Gráfico de Torta">
+<script>
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+  }
+</script>
 
-  <p><strong>Datos mostrados:</strong></p>
-  <ul>
-    <li>Light: 5,440 avistamientos (54.4%)</li>
-    <li>Triangle: 2,574 (25.74%)</li>
-    <li>Circle: 2,483 (24.83%)</li>
-    <li>Fireball: 2,117 (21.17%)</li>
-    <li>Other: 1,880 (18.8%)</li>
-  </ul>
+</body>
+</html>
 
-  <p><strong>Interpretación:</strong> Los objetos luminosos ("light") son con diferencia los más reportados, representando más de la mitad de todos los avistamientos. Las formas geométricas como triángulo y círculo también son frecuentes.</p>
-
-  <p><strong>Consulta SQL:</strong></p>
-  <pre><code>
-SELECT 
-  UFO_shape,
-  COUNT(*) AS Sighting*
