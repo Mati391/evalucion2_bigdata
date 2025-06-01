@@ -141,3 +141,13 @@ ORDER BY
 El tercer gráfico representa un mapa con la distribución de avistamientos por estado en EE.UU., ordenado de mayor a menor.
 
 ![Mapa de avistamientos](https://github.com/user-attachments/assets/86ae55de-b404-499e-a1ae-d25ac1e25429)
+
+**Interpretación:**  
+Interpretación del gráfico de tabla y mapa:
+1. Tabla de avistamientos por estado:
+Muestra los 11 estados con mayor número de avistamientos.
+Los tres estados con más avistamientos son:
+
+California: 3.561
+Washington: 1.555
+Florida: 1.544
