@@ -2,24 +2,47 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Evaluación 2 - Big Data</title>
+  <title>Avistamientos de OVNIs</title>
+  <style>
+    body {
+      background-image: url('https://images.unsplash.com/photo-1506702315536-dd8b83e2dcf9?auto=format&fit=crop&w=1950&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-shadow: 1px 1px 3px black;
+      padding: 40px;
+    }
+    h1 {
+      text-align: center;
+      font-size: 3em;
+      margin-bottom: 0.5em;
+    }
+    .content {
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 30px;
+      border-radius: 10px;
+      max-width: 800px;
+      margin: auto;
+    }
+    ul {
+      font-size: 1.2em;
+    }
+  </style>
 </head>
 <body>
-  <h1>Evaluación 2 - Big Data</h1>
-  <h2>Integrantes: Matías Sánchez, Jonathan Ávila, Yuliana Benitez</h2>
-
-  <p>Este proyecto analiza datos de avistamientos de OVNIs en Estados Unidos utilizando herramientas de Google Cloud como BigQuery, Cloud Storage y Dataprep.</p>
-
-  <h3>Resumen del Proyecto</h3>
-  <ul>
-    <li>Nombre del archivo: ufo_sighting.csv</li>
-    <li>Tamaño: 12.9 MB – 25.699 registros</li>
-    <li>Limpieza realizada en Cloud Dataprep</li>
-    <li>Consultas en BigQuery</li>
-    <li>Visualizaciones: gráfico de torta, gráfico de barras, mapa de calor por estado</li>
-  </ul>
-
-  <h3>Repositorio en GitHub</h3>
-  <p><a href="https://github.com/Mati391/evalucion2_bigdata" target="_blank">Ver repositorio</a></p>
+  <div class="content">
+    <h1>Avistamientos de OVNIs</h1>
+    <p>A continuación se presentan los cinco tipos de objetos voladores no identificados (OVNIs) más reportados en Estados Unidos según el análisis de datos:</p>
+    <ul>
+      <li>Light: 5,440 avistamientos (54.4%)</li>
+      <li>Triangle: 2,574 (25.74%)</li>
+      <li>Circle: 2,483 (24.83%)</li>
+      <li>Fireball: 2,117 (21.17%)</li>
+      <li>Other: 1,880 (18.8%)</li>
+    </ul>
+    <p>Estos datos reflejan las formas más comunes en los reportes y son parte del análisis realizado con BigQuery y herramientas de Google Cloud.</p>
+  </div>
 </body>
 </html>
